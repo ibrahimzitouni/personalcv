@@ -1,0 +1,235 @@
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #333;
+    --header-bg: linear-gradient(135deg, #1e88e5, #64b5f6);
+    --card-bg: #fff;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --accent-color: #1e88e5;
+    --secondary-color: #64b5f6;
+    --hover-color: #e3f2fd;
+}
+
+.dark-theme {
+    --bg-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --header-bg: linear-gradient(135deg, #e94560, #533483);
+    --card-bg: #0f3460;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --accent-color: #e94560;
+    --secondary-color: #533483;
+    --hover-color: #16213e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--bg-color);
+    min-height: 100vh;
+    padding: 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cv-container {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.header {
+    background: var(--header-bg);
+    color: #fff;
+    padding: 2rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+.header-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.job-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.contact-info, .additional-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info span, .additional-info span {
+    display: flex;
+    align-items: center;
+}
+
+section {
+    padding: 2rem;
+    border-bottom: 1px solid var(--accent-color);
+    transition: background-color 0.3s ease;
+}
+
+section:nth-child(even) {
+    background-color: var(--hover-color);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+h2 svg {
+    margin-right: 0.5rem;
+}
+
+.traits, .skills-list, .education-list, .internship-list, .language-list, .hobbies-list {
+    list-style-type: none;
+}
+
+.traits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.traits li {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.traits li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.skills-list li, .education-list li, .internship-list li, .language-list li {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.skills-list li:hover, .education-list li:hover, .internship-list li:hover, .language-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.year, .location, .language {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.hobbies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.hobbies-list li {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.hobbies-list li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#themeToggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .contact-info, .additional-info {
+        justify-content: center;
+    }
+}
